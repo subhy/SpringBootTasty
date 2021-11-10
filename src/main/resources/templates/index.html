@@ -1,0 +1,289 @@
+<html>
+<head>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand mb-0 h1">Tasty Food POS</span>
+     <span id='date-time'></span>.
+
+    <form class="form-inline my-2 my-lg-0">
+        <label style="color:white; font-weight: bold; text-align:center;">Order ID :</label>
+        <input class="form-control mr-sm-2" type="search" placeholder="001">
+
+    </form>
+</nav>
+</br>
+
+
+<div class="row">
+
+    <div class="col-sm-6">
+
+        <div class="container">
+            <div class="list-group-item list-group-item-action active">Item</div>
+
+
+            <div class="panel-body bg-dark" style="color: white">
+
+                <form id="frm-project">
+                    <div class="form-group">
+                        <div>
+                            <img alt="Chinese Rolls-2pcs" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="CRolls" src="../images/BBQStick.png"
+                                 width="200">
+                            <img alt="Prawn Stick Large" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="PrawnStL" src="../images/BBQStick.png"
+                                 width="200">
+                            <img alt="Prawn Stick Small" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="PrawnStS"
+                                 src="../images/BBQStick.png" width="200">
+                        </div>
+                        <div>
+                            <img alt="Samosha 2 Pcs" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="Samosha"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Chicken Stick" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150"
+                                 id="ChSt" src="../images/BBQStick.png"
+                                 width="200">
+                            <img alt="Dhal Wade-2pcs" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="DhaWade"
+                                 src="../images/BBQStick.png" width="200">
+
+                        </div>
+                        <div>
+                            <img alt="Uludu Wade" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="Uluwade"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Chicken Nan" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="Nan"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Spring Potato" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="SPotato"
+                                 src="../images/BBQStick.png" width="200">
+                        </div>
+                        <div>
+                            <img alt="Noodles Sasuage" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="NooSau"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="BBQ Stick" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="BBQStick"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Prawn Pizza 2 Pcs" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="PrawnPza"
+                                 src="../images/BBQStick.png" width="200">
+
+                        </div>
+                        <div>
+                            <img alt="Sasuage Ring" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="SauRing"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Crab Jumbo 3 Pcs" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="CrabJum"
+                                 src="../images/BBQStick.png" width="200">
+                            <img alt="Beverages" class="photo" data-target="#exampleModal" data-toggle="modal"
+                                 height="150" id="Bave"
+                                 src="../images/BBQStick.png" width="200">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="container">
+            <div class="list-group-item list-group-item-action active">Add Product</div>
+            <table align="center" cellpadding="0" cellspacing="0" class="table table-dark table-bordered" id="tbl-item"
+                   width="100%">
+                <thead>
+
+                <tr>
+                    <th>Delete</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <div class="list-group-item list-group-item-action active">Bill</div>
+            <div>
+                <label>Total</label>
+                <input id="total" name="total" placeholder="Total" required
+                       style="color: yellow; background: black; font-size: 30px;" type="text">
+            </div>
+            </br>
+            <!--Payment Method Button-->
+            <div>
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Payment Method</label>
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <option selected value="1">Cash</option>
+                <option value="2">Credit Card</option>
+            </select>
+            </div>
+        </br>
+            <div>
+                <input class="btn btn-warning" id="placeorder" name="placeorder" type="button" value="Place Order">
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog"
+     tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Qty</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <input id="qty" name="qty" placeholder="Qty" required
+                           style="color: yellow; background: black; font-size: 30px;" type="number">
+                </div>
+            </div>
+
+
+            <div class="modal-footer">
+                <input class="btn btn-info" id="add" name="add" onclick="add()" type="button" value="Add">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="component/jquery/jquery.js"></script>
+<script src="component/jquery/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    var total = 0;
+    var tot = 0;
+
+    var item = null;
+    var price = 0;
+
+
+    var a = "";
+
+    $("img").on("click", function () {
+
+        a = $(this).prop('id')
+
+    });
+
+
+    function add() {
+        if (a == "CRolls") {
+
+            item = "Chocolate";
+            price = 32;
+
+
+        } else if (a == "Mango") {
+            item = "Mango";
+            price = 35;
+
+        } else if (a == "Venila") {
+            item = "Venila";
+            price = 40;
+
+        } else if (a == "Strawberry") {
+            item = "Strawberry";
+            price = 45;
+
+        } else if (a == "MixFruit") {
+            item = "Strawberry";
+            price = 35;
+
+        }
+
+        var qty = $('#qty').val();
+        tot = qty * price;
+
+        var table1 =
+
+            "<tr>" +
+            "<td><button type='button' name='record' class='btn btn-warning' onclick='deleterow(this)'>Delete</td>" +
+            "<td>" + item + "</td>" +
+            "<td>" + price + "</td>" +
+
+            "<td>" + qty + "</td>" +
+
+            "<td>" + tot + "</td>" +
+
+            "</tr>";
+
+
+        total += Number(tot);
+        $('#total').val(total);
+
+
+        $("table tbody").append(table1);
+
+        //Should be insert into the db
+
+
+        $("exampleModal").modal('toggle');
+        $('#qty').val("1");
+
+
+    }
+    /*Date and time*/
+
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+
+    document.getElementById('date-time').innerHTML=dateTime;
+    /*End Date and time*/
+    function deleterow(e) {
+        total_cost = parseInt($(e).parent().parent().find('td:last').text(), 10);
+        total -= total_cost;
+        $('#total').val(total);
+        $(e).parent().parent().remove();
+
+
+    }
+
+
+    $('#reset').click(function () {
+        //Submit data into database
+        location.reload();
+    });
+
+</script>
+
+</body>
+
+</html>
