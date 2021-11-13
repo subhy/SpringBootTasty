@@ -4,5 +4,5 @@ public interface NetworkCalls {
 
     public String getToken();
 
-    public String postItemData();
+    //public String postItemData();
 }

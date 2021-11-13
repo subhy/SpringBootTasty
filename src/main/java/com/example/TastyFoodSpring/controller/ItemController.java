@@ -3,12 +3,13 @@ package com.example.TastyFoodSpring.controller;
 
 import com.example.TastyFoodSpring.dto.ItemDTO;
 import com.example.TastyFoodSpring.network.NetworkCalls;
-import com.example.TastyFoodSpring.network.impl.NetworkCallsImpl;
 import com.example.TastyFoodSpring.service.ItemService;
+import com.example.TastyFoodSpring.service.ODetailsService;
+import com.example.TastyFoodSpring.service.PayLoadService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -21,13 +22,19 @@ public class ItemController {
     @Autowired
     private NetworkCalls networkCalls;
 
-    @ResponseStatus(HttpStatus.CREATED)
+    @Autowired
+    private ODetailsService oDetailsService;
+
+    @Autowired
+    private PayLoadService payLoadService;
+
+  /*  @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ItemDTO saveItem(@RequestBody ItemDTO itemDTO) {
         System.out.println("*********************");
         System.out.println(itemDTO.toString());
         return itemService.saveItem(itemDTO);
-    }
+    }*/
 
     @GetMapping("/{iCode}")
     public ItemDTO findItem(@PathVariable String iCode) {
@@ -44,11 +51,22 @@ public class ItemController {
         return networkCalls.getToken();
     }
 
-    @GetMapping("/testJson")
+    @GetMapping("/testByOrder/{orderid}")
+    public List<ItemDTO> getItemsByOrder(@PathVariable String orderid){
+        return itemService.getItemsByOrderId(orderid);
+    }
+
+    @GetMapping("/orders")
+    public String getOrders(){
+      //  return oDetailsService.getOrderDetails();
+      return payLoadService.getPrimaryUpdatePayload();
+    }
+
+    /*@GetMapping("/testJson")
     public String testJSon(){
         // NetworkCallsImpl networkCalls = new NetworkCallsImpl();
         System.out.println("**********************");
         return networkCalls.postItemData();
-    }
+    }*/
 
 }

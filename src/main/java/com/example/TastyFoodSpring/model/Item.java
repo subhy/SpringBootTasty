@@ -17,9 +17,15 @@ import javax.persistence.Id;
 public class Item {
 
     @Id
-    String code;
-    String name;
-    Double price;
+    private String icode;
+    private String orderid;
+    private String description;
+    private double unitPrice;
+    private double qtyOnHand;
+    private double shout;
+    private double balance;
+    private double vary;
+
 
 
 }

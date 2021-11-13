@@ -1,9 +1,6 @@
 package com.example.TastyFoodSpring.dto.payloadDTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -11,6 +8,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class PrimaryPayload {
     String AppCode;
     String PropertyCode;
@@ -74,5 +72,18 @@ public class PrimaryPayload {
 
     public void setPosSales(List<PosSalesPayload> posSales) {
         this.PosSales = posSales;
+    }
+
+    @Override
+    public String toString() {
+        return "PrimaryPayload{" +
+                "AppCode='" + AppCode + '\'' +
+                ", PropertyCode='" + PropertyCode + '\'' +
+                ", ClientID='" + ClientID + '\'' +
+                ", ClientSecret='" + ClientSecret + '\'' +
+                ", POSInterfaceCode='" + POSInterfaceCode + '\'' +
+                ", BatchCode='" + BatchCode + '\'' +
+                ", PosSales=" + PosSales +
+                '}';
     }
 }

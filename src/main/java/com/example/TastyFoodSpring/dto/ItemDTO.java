@@ -13,8 +13,12 @@ import javax.persistence.Id;
 @ToString
 public class ItemDTO {
 
-    String code;
-    String name;
-    Double price;
-
+    private String icode;
+    private String orderid;
+    private String description;
+    private double unitPrice;
+    private double qtyOnHand;
+    private double shout;
+    private double balance;
+    private double vary;
 }

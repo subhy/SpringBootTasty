@@ -10,11 +10,9 @@ public interface ItemService {
 
     ItemDTO getItem(String code);
 
-    ItemDTO saveItem(ItemDTO itemDTO);
-
-    void deleteItem(String code);
-
     List<Item> findAll();
+
+    List<ItemDTO> getItemsByOrderId(String orderid);
 
 
 

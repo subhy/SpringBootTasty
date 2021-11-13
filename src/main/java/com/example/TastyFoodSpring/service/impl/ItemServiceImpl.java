@@ -7,8 +7,10 @@ import com.example.TastyFoodSpring.repository.ItemRepository;
 import com.example.TastyFoodSpring.service.ItemService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,25 +32,22 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public ItemDTO saveItem(ItemDTO itemDTO) {
-        Item item = new Item();
-        BeanUtils.copyProperties(itemDTO,item);
-        Item saveItem = itemRepository.save(item);
-        ItemDTO itemDTORet = new ItemDTO();
-        BeanUtils.copyProperties(saveItem,itemDTORet);
-        return itemDTORet;
-    }
-
-    @Override
-    public void deleteItem(String code) {
-        ItemDTO itemDTO = new ItemDTO();
-        itemRepository.deleteById(code);
-
-
-    }
-
-    @Override
     public List<Item> findAll() {
         return null;
+    }
+
+    @Override
+    public List<ItemDTO> getItemsByOrderId(String orderid) {
+        List<Item> itemsByOrderid = itemRepository.findItemsByOrderid(orderid);
+        List<ItemDTO> itemDTOLIst = new ArrayList<>();
+
+        for (Item item : itemsByOrderid){
+            ItemDTO itemDTO = new ItemDTO();
+            BeanUtils.copyProperties(item,itemDTO);
+            itemDTOLIst.add(itemDTO);
+        }
+
+        return itemDTOLIst;
+
     }
 }
