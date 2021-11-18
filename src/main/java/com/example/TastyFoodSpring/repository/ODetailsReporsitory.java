@@ -7,10 +7,12 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface ODetailsReporsitory extends CrudRepository<ODetails, Integer> {
-    @Query("SELECT DISTINCT od.orderId FROM ODetails od")
-    List<Integer> findDistinctByOrderId();
+    @Query("SELECT DISTINCT od.receiptno FROM ODetails od")
+    List<Integer> findDistinctByReceiptno();
 
-    List<ODetails> findODetailsByOrderId(int orderId);
+    List<ODetails> findODetailsByReceiptno(int receiptno);
+
+
 
 
 }

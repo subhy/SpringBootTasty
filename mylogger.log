@@ -1,0 +1,16 @@
+Nov 17, 2021 9:30:59 AM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: null
+Nov 17, 2021 9:31:47 AM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: null
+Nov 17, 2021 9:32:57 AM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: PrimaryPayload{AppCode='POS-02', PropertyCode='CCB1', ClientID='CCB1-PS-21-00000018', ClientSecret='e4gUOM7nEhCfJAmOMkxrhg==', POSInterfaceCode='CCB1-PS-21-00000018', BatchCode='null', PosSales=null}AAAAAA
+Nov 17, 2021 9:35:00 AM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: PrimaryPayload{AppCode='POS-02', PropertyCode='CCB1', ClientID='CCB1-PS-21-00000018', ClientSecret='e4gUOM7nEhCfJAmOMkxrhg==', POSInterfaceCode='CCB1-PS-21-00000018', BatchCode='null', PosSales=null}AAAAAA
+Nov 17, 2021 10:05:40 PM com.example.TastyFoodSpring.TastyFoodSpringApplication main
+SEVERE: System is Running
+Nov 17, 2021 10:05:41 PM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: PrimaryPayload{AppCode='POS-02', PropertyCode='CCB1', ClientID='CCB1-PS-21-00000018', ClientSecret='e4gUOM7nEhCfJAmOMkxrhg==', POSInterfaceCode='CCB1-PS-21-00000018', BatchCode='null', PosSales=null}AAAAAA
+Nov 17, 2021 10:19:20 PM com.example.TastyFoodSpring.TastyFoodSpringApplication main
+SEVERE: System is Running
+Nov 17, 2021 10:19:21 PM com.example.TastyFoodSpring.service.impl.ODetailsServiceImpl getOrderDetails
+SEVERE: PrimaryPayload{AppCode='POS-02', PropertyCode='CCB1', ClientID='CCB1-PS-21-00000018', ClientSecret='e4gUOM7nEhCfJAmOMkxrhg==', POSInterfaceCode='CCB1-PS-21-00000018', BatchCode='null', PosSales=null}AAAAAA

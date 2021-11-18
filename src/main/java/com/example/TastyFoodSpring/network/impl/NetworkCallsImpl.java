@@ -22,14 +22,41 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 
 @Service
 @EnableScheduling
 public class NetworkCallsImpl implements NetworkCalls {
+
+
+
+    //Logger
+    Logger rootLogger = Logger.getLogger("");
+    FileHandler fileHandler;
+
+    {
+        try {
+            fileHandler = new FileHandler("SBerror.log", true);
+            fileHandler.setFormatter(new SimpleFormatter());
+            fileHandler.setLevel(Level.INFO);
+            rootLogger.addHandler(fileHandler);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
 
     @Autowired
     RestTemplate restTemplate;
@@ -92,6 +119,12 @@ public class NetworkCallsImpl implements NetworkCalls {
 
         String result = new Gson().toJson(responsePayload);
 
+        if( responsePayload.getReturnStatus().equals("FAIL") ){
+            System.out.println("Fail");
+        }else {
+            oDetailsService.deleteSentData();
+        }
+
         System.out.println(result);
 
 
@@ -102,79 +135,13 @@ public class NetworkCallsImpl implements NetworkCalls {
 
     // @Override
     private String postItemData() {
-
-
-
-
-       /* PrimaryPayload primaryPayload = new PrimaryPayload();
-        primaryPayload.setAppCode("POS-02");
-        primaryPayload.setPropertyCode("CCB1");
-        primaryPayload.setClientID("CCB1-PS-21-00000018");
-        primaryPayload.setClientSecret("e4gUOM7nEhCfJAmOMkxrhg==");
-        primaryPayload.setPOSInterfaceCode("CCB1-PS-21-00000018");
-        //primaryPayload.setBatchCode("2021110321211612");
-        primaryPayload.setBatchCode(LocalDateTime.now().toString());
-
-        ////////////////////// set Order /////////////////////
-        List<PosSalesPayload> PosSales = new ArrayList<>();
-
-        PosSalesPayload order1 = new PosSalesPayload();
-        order1.setPropertyCode("CCB1");
-        order1.setPOSInterfaceCode("CCB1-PS-21-00000018");
-        order1.setReceiptDate("06/11/2021");
-        order1.setReceiptTime("10:15:12");
-        order1.setReceiptNo("R00003");
-        order1.setNoOfItems("3");
-        order1.setSalesCurrency("LKR");
-        order1.setTotalSalesAmtB4Tax("500.00");
-        order1.setTotalSalesAmtAfterTax("525.00");
-        order1.setSalesTaxRate("5");
-        order1.setServiceChargeAmt("0.00");
-        order1.setPaymentAmt("525.00");
-        order1.setPaymentCurrency("LKR");
-        order1.setPaymentMethod("Cash");
-        order1.setSalesType("Sales");
-
-        ///////////////////   Item Setup  ///////////////////
-        ItemPayload item1 = new ItemPayload();
-
-        item1.setItemDesc("Apple");
-        item1.setItemAmt("300");
-        item1.setItemDiscountAmt("0");
-
-        ItemPayload item2 = new ItemPayload();
-        item2.setItemDesc("Apple2");
-        item2.setItemAmt("300");
-        item2.setItemDiscountAmt("0");
-
-        ItemPayload item3 = new ItemPayload();
-        item3.setItemDesc("Apple3");
-        item3.setItemAmt("300");
-        item3.setItemDiscountAmt("0");
-
-        ArrayList<ItemPayload> Items = new ArrayList<>();
-        Items.add(item1);
-        Items.add(item2);
-        Items.add(item3);
-        ///////////////////////////////////////////////////////////
-
-        order1.setItems(Items);
-        PosSales.add(order1);
-        primaryPayload.setPosSales(PosSales);
-
-
-        String jsonParsedPayload = new Gson().toJson(primaryPayload);
-
-        return jsonParsedPayload;*/
-
-
         return oDetailsService.getOrderDetails();
 
 
     }
 
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 900000)
     public void testScheduler() {
         // System.out.println("************Sheduler **********"+ LocalDateTime.now()  );
         String token = this.getToken();

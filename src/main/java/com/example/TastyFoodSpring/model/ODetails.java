@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.sql.Date;
 
 @Entity
-@Table(name="ODetails")
+@Table(name="odetails")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -17,63 +17,81 @@ import java.sql.Date;
 public class ODetails {
 
     @Id
-    private int oNo;
-    private Date orderDate;
-    private int orderId;
-    private int orderNo;
-    private String iCode;
-    private String iName;
+    private int sno;  //Sequential No with Auto increment
+    private String batchcode; //Batch Code ddmmyyyyhhmmss
+    private String receiptdate; //Receipt Date DD/MM/YYYY
+    private String receipttime; //Receipt Time HH:MM:SS
+    private int receiptno; //Receipt No
+    private int itemno;  //Item counting no
+    private String icode;
+    private String idesc;
     private double qty;
-    private double uPrice;
-    private String pMethod;
-    private String uId;
+    private double uprice;
+    private double salestaxrate;  //Sales Tax Rate
 
-    public int getoNo() {
-        return oNo;
+
+    public int getSno() {
+        return sno;
     }
 
-    public void setoNo(int oNo) {
-        this.oNo = oNo;
+    public void setSno(int sno) {
+        this.sno = sno;
     }
 
-    public Date getOrderDate() {
-        return orderDate;
+    public String getBatchcode() {
+        return batchcode;
     }
 
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+    public void setBatchcode(String batchcode) {
+        this.batchcode = batchcode;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public String getReceiptdate() {
+        return receiptdate;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setReceiptdate(String receiptdate) {
+        this.receiptdate = receiptdate;
     }
 
-    public int getOrderNo() {
-        return orderNo;
+    public String getReceipttime() {
+        return receipttime;
     }
 
-    public void setOrderNo(int orderNo) {
-        this.orderNo = orderNo;
+    public void setReceipttime(String receipttime) {
+        this.receipttime = receipttime;
     }
 
-    public String getiCode() {
-        return iCode;
+    public int getReceiptno() {
+        return receiptno;
     }
 
-    public void setiCode(String iCode) {
-        this.iCode = iCode;
+    public void setReceiptno(int receiptno) {
+        this.receiptno = receiptno;
     }
 
-    public String getiName() {
-        return iName;
+    public int getItemno() {
+        return itemno;
     }
 
-    public void setiName(String iName) {
-        this.iName = iName;
+    public void setItemno(int itemno) {
+        this.itemno = itemno;
+    }
+
+    public String getIcode() {
+        return icode;
+    }
+
+    public void setIcode(String icode) {
+        this.icode = icode;
+    }
+
+    public String getIdesc() {
+        return idesc;
+    }
+
+    public void setIdesc(String idesc) {
+        this.idesc = idesc;
     }
 
     public double getQty() {
@@ -84,27 +102,19 @@ public class ODetails {
         this.qty = qty;
     }
 
-    public double getuPrice() {
-        return uPrice;
+    public double getUprice() {
+        return uprice;
     }
 
-    public void setuPrice(double uPrice) {
-        this.uPrice = uPrice;
+    public void setUprice(double uprice) {
+        this.uprice = uprice;
     }
 
-    public String getpMethod() {
-        return pMethod;
+    public double getSalestaxrate() {
+        return salestaxrate;
     }
 
-    public void setpMethod(String pMethod) {
-        this.pMethod = pMethod;
-    }
-
-    public String getuId() {
-        return uId;
-    }
-
-    public void setuId(String uId) {
-        this.uId = uId;
+    public void setSalestaxrate(double salestaxrate) {
+        this.salestaxrate = salestaxrate;
     }
 }

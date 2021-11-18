@@ -13,5 +13,8 @@ public interface ODetailsService {
 
     public List<ODetails> getODetailsByOrderId(int orderid);
 
+    public void deleteSentData();
+
+
 
 }
